@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import FloatingHearts from "@/components/FloatingHearts";
 import Chatbot from "@/components/Chatbot";
 import { useAuth } from "@/contexts/AuthContext";
+import heroForumImg from "@/assets/hero-forum.jpg";
 
 interface Post {
   id: string;
@@ -105,15 +106,20 @@ const Forum = () => {
       <Header />
       <Chatbot />
 
-      {/* Hero */}
-      <section className="hero-gradient pt-28 pb-12 px-4 sm:px-6 text-center">
-        <div className="max-w-3xl mx-auto">
+      {/* Hero — blurry image background */}
+      <section className="relative pt-28 pb-16 px-4 sm:px-6 text-center overflow-hidden min-h-[400px] flex items-center justify-center">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroForumImg})`, filter: "blur(8px)", transform: "scale(1.08)" }}
+        />
+        <div className="absolute inset-0 bg-background/60" />
+        <div className="relative z-10 max-w-3xl mx-auto">
           <span className="text-5xl block mb-4">💬</span>
-          <h1 className="text-foreground mb-4">Community Forum</h1>
-          <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+          <h1 className="text-foreground mb-4 drop-shadow-lg">Community Forum</h1>
+          <p className="text-lg text-foreground/80 leading-relaxed mb-6 drop-shadow">
             A safe, judgment-free space for IB students to share, support, and grow together.
           </p>
-          <div className="inline-flex items-center gap-2 bg-card px-5 py-3 rounded-2xl border border-border shadow-sm text-sm text-muted-foreground">
+          <div className="inline-flex items-center gap-2 bg-card/80 backdrop-blur-md px-5 py-3 rounded-2xl border border-border/60 shadow text-sm text-muted-foreground">
             🔒 <strong className="text-foreground">100% anonymous posting available.</strong> Your privacy is our priority.
           </div>
         </div>

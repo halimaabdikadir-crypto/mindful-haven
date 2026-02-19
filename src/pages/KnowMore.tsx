@@ -3,6 +3,9 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingHearts from "@/components/FloatingHearts";
 import Chatbot from "@/components/Chatbot";
+import heroKnowmoreImg from "@/assets/hero-knowmore.jpg";
+import breathingExerciseImg from "@/assets/breathing-exercise.jpg";
+import timeManagementImg from "@/assets/time-management.jpg";
 
 const techniques = [
   {
@@ -87,12 +90,17 @@ const KnowMore = () => {
       <Header />
       <Chatbot />
 
-      {/* Hero */}
-      <section className="hero-gradient pt-28 pb-16 px-4 sm:px-6 text-center">
-        <div className="max-w-3xl mx-auto">
+      {/* Hero — blurry image background */}
+      <section className="relative pt-28 pb-24 px-4 sm:px-6 text-center overflow-hidden min-h-[420px] flex items-center justify-center">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroKnowmoreImg})`, filter: "blur(8px)", transform: "scale(1.08)" }}
+        />
+        <div className="absolute inset-0 bg-background/60" />
+        <div className="relative z-10 max-w-3xl mx-auto">
           <span className="text-5xl block mb-4">🌿</span>
-          <h1 className="text-foreground mb-4">Stress Relief Hub</h1>
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <h1 className="text-foreground mb-4 drop-shadow-lg">Stress Relief Hub</h1>
+          <p className="text-lg text-foreground/80 leading-relaxed drop-shadow max-w-2xl mx-auto">
             Practical, science-backed strategies designed specifically for IB students managing heavy workloads, overlapping deadlines, and emotional exhaustion.
           </p>
         </div>
@@ -120,28 +128,96 @@ const KnowMore = () => {
         </div>
       </section>
 
-      {/* Breathing Exercise Video Placeholder */}
+      {/* Multimedia — Images & Real Embedded Videos */}
       <section className="py-12 px-4 sm:px-6 max-w-5xl mx-auto">
-        <div className="text-center mb-8">
-          <h2 className="text-foreground mb-3">🎵 Guided Exercises</h2>
-          <p className="text-muted-foreground">Take a break right now with these calming exercises.</p>
+        <div className="text-center mb-10">
+          <h2 className="text-foreground mb-3">🎵 Guided Exercises & Resources</h2>
+          <p className="text-muted-foreground">Visual and video resources to support your wellbeing right now.</p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="zevina-card p-6 border border-border text-center">
-            <div className="w-full h-40 bg-primary/10 rounded-xl flex items-center justify-center mb-4 text-5xl">
-              🎵
+
+        {/* Image cards row */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+          <div className="zevina-card overflow-hidden border border-border group">
+            <div className="relative overflow-hidden">
+              <img
+                src={breathingExerciseImg}
+                alt="Breathing exercise visualization — concentric calming circles"
+                className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/70 to-transparent" />
             </div>
-            <h3 className="text-foreground mb-1">5-Min Breathing Exercise</h3>
-            <p className="text-muted-foreground text-sm mb-4">Box breathing to calm your nervous system</p>
-            <button className="btn-primary px-6 py-2 text-sm">▶ Play Audio</button>
+            <div className="p-5">
+              <h3 className="text-foreground mb-1">4-7-8 Breathing Technique</h3>
+              <p className="text-muted-foreground text-sm mb-4">
+                Inhale for 4 counts, hold for 7, exhale for 8. Repeat 4 cycles to activate your body's calming response instantly.
+              </p>
+              <div className="flex gap-2 flex-wrap">
+                <span className="bg-primary/10 text-primary text-xs font-bold px-3 py-1 rounded-full border border-primary/20">🧘 Anxiety Relief</span>
+                <span className="bg-secondary/50 text-secondary-foreground text-xs font-bold px-3 py-1 rounded-full border border-secondary">⏱ 5 minutes</span>
+              </div>
+            </div>
           </div>
-          <div className="zevina-card p-6 border border-border text-center">
-            <div className="w-full h-40 bg-secondary/40 rounded-xl flex items-center justify-center mb-4 text-5xl">
-              🎬
+
+          <div className="zevina-card overflow-hidden border border-border group">
+            <div className="relative overflow-hidden">
+              <img
+                src={timeManagementImg}
+                alt="Time management and Pomodoro technique visual guide"
+                className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/70 to-transparent" />
             </div>
-            <h3 className="text-foreground mb-1">Body Scan Meditation</h3>
-            <p className="text-muted-foreground text-sm mb-4">10-minute guided meditation for stress relief</p>
-            <button className="btn-lavender px-6 py-2 text-sm">▶ Watch Video</button>
+            <div className="p-5">
+              <h3 className="text-foreground mb-1">Pomodoro Productivity Method</h3>
+              <p className="text-muted-foreground text-sm mb-4">
+                Work in focused 25-minute sprints followed by 5-minute breaks. After 4 cycles, take a longer 20-minute rest to recharge.
+              </p>
+              <div className="flex gap-2 flex-wrap">
+                <span className="bg-primary/10 text-primary text-xs font-bold px-3 py-1 rounded-full border border-primary/20">⏰ Productivity</span>
+                <span className="bg-secondary/50 text-secondary-foreground text-xs font-bold px-3 py-1 rounded-full border border-secondary">📚 IB Study</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Embedded YouTube Videos */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="zevina-card overflow-hidden border border-border">
+            <div className="bg-muted px-5 py-3 border-b border-border flex items-center gap-2">
+              <span className="text-xl">🎵</span>
+              <span className="font-semibold text-foreground text-sm">5-Min Box Breathing</span>
+            </div>
+            <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
+              <iframe
+                className="absolute inset-0 w-full h-full"
+                src="https://www.youtube.com/embed/tybOi4hjZFQ"
+                title="Box Breathing Exercise for Stress Relief"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+            <div className="p-4">
+              <p className="text-muted-foreground text-xs">Box breathing to calm your nervous system before exams or during overwhelming moments.</p>
+            </div>
+          </div>
+
+          <div className="zevina-card overflow-hidden border border-border">
+            <div className="bg-muted px-5 py-3 border-b border-border flex items-center gap-2">
+              <span className="text-xl">🧘</span>
+              <span className="font-semibold text-foreground text-sm">Body Scan Meditation</span>
+            </div>
+            <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
+              <iframe
+                className="absolute inset-0 w-full h-full"
+                src="https://www.youtube.com/embed/15q-N-_kkrU"
+                title="10-Minute Body Scan Meditation for Stress"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+            <div className="p-4">
+              <p className="text-muted-foreground text-xs">10-minute guided body scan to release tension stored from hours of studying.</p>
+            </div>
           </div>
         </div>
       </section>

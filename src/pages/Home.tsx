@@ -4,6 +4,9 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingHearts from "@/components/FloatingHearts";
 import Chatbot from "@/components/Chatbot";
+import heroHomeImg from "@/assets/hero-home.jpg";
+import meditationStudentImg from "@/assets/meditation-student.jpg";
+import studentsStudyingImg from "@/assets/students-studying.jpg";
 
 const features = [
   {
@@ -59,32 +62,41 @@ const Home = () => {
       <Header />
       <Chatbot />
 
-      {/* Hero Section */}
-      <section className="hero-gradient min-h-screen flex items-center justify-center pt-16 px-4 sm:px-6 relative">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-secondary/60 px-4 py-2 rounded-full text-sm font-semibold text-secondary-foreground mb-6 border border-secondary">
+      {/* Hero Section — blurry image background */}
+      <section className="relative min-h-screen flex items-center justify-center pt-16 px-4 sm:px-6 overflow-hidden">
+        {/* Blurry background image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroHomeImg})`, filter: "blur(6px)", transform: "scale(1.05)" }}
+        />
+        {/* Dark overlay for readability */}
+        <div className="absolute inset-0 bg-background/55" />
+
+        {/* Content */}
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 bg-card/80 backdrop-blur-md px-4 py-2 rounded-full text-sm font-semibold text-secondary-foreground mb-6 border border-secondary/50 shadow">
             <span>💜</span> For every IB student who's ever felt overwhelmed
           </div>
 
-          <h1 className="text-foreground mb-6 leading-tight">
+          <h1 className="text-foreground mb-6 leading-tight drop-shadow-lg">
             Welcome back,{" "}
             <span className="text-primary">{user?.name?.split(" ")[0] || "Friend"}</span>
             <br />
-            <span className="text-foreground/80">You've got this. 🌿</span>
+            <span className="text-foreground/90">You've got this. 🌿</span>
           </h1>
 
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
+          <p className="text-lg sm:text-xl text-foreground/80 max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow">
             ZEVINA is your safe space to breathe, reflect, and connect — because your mental wellbeing
             matters just as much as your grades.
           </p>
 
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link to="/know-more" className="btn-primary px-8 py-3.5 text-base inline-block">
+            <Link to="/know-more" className="btn-primary px-8 py-3.5 text-base inline-block shadow-xl">
               Start Your Wellness Journey ✨
             </Link>
             <Link
               to="/forum"
-              className="btn-lavender px-8 py-3.5 text-base inline-block"
+              className="btn-lavender px-8 py-3.5 text-base inline-block shadow-xl"
             >
               Join the Community 💬
             </Link>
@@ -97,7 +109,7 @@ const Home = () => {
               { num: "500+", label: "Forum Posts Shared" },
               { num: "24/7", label: "Zevi is Available" },
             ].map((s) => (
-              <div key={s.label} className="text-center">
+              <div key={s.label} className="text-center bg-card/70 backdrop-blur-md px-6 py-4 rounded-2xl border border-border/50 shadow-lg">
                 <p className="text-3xl font-black text-primary" style={{ fontFamily: "Merienda, cursive" }}>{s.num}</p>
                 <p className="text-sm text-muted-foreground font-medium">{s.label}</p>
               </div>
@@ -106,7 +118,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* Multimedia Feature Section */}
       <section className="py-20 px-4 sm:px-6 max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-foreground mb-3">Everything You Need to Thrive 💚</h2>
@@ -114,6 +126,57 @@ const Home = () => {
             Built specifically for MYP and DP students who deserve more than just academic support.
           </p>
         </div>
+
+        {/* Visual intro row with images */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <div className="relative rounded-2xl overflow-hidden shadow-xl group">
+            <img
+              src={meditationStudentImg}
+              alt="Student practicing mindfulness and journaling"
+              className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent flex items-end p-6">
+              <div>
+                <h3 className="text-foreground text-xl mb-1">Mindfulness & Journaling</h3>
+                <p className="text-muted-foreground text-sm">Daily reflections to keep you grounded</p>
+              </div>
+            </div>
+          </div>
+          <div className="relative rounded-2xl overflow-hidden shadow-xl group">
+            <img
+              src={studentsStudyingImg}
+              alt="Students studying together in a supportive environment"
+              className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent flex items-end p-6">
+              <div>
+                <h3 className="text-foreground text-xl mb-1">Peer Support Community</h3>
+                <p className="text-muted-foreground text-sm">Connect with students who understand the IB journey</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Embedded YouTube Video */}
+        <div className="mb-12 rounded-2xl overflow-hidden shadow-xl border border-border">
+          <div className="bg-muted px-6 py-4 flex items-center gap-3 border-b border-border">
+            <span className="text-2xl">🎬</span>
+            <div>
+              <h3 className="text-foreground text-lg">Featured: Managing IB Stress</h3>
+              <p className="text-muted-foreground text-sm">A guided session from our wellness partners</p>
+            </div>
+          </div>
+          <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
+            <iframe
+              className="absolute inset-0 w-full h-full"
+              src="https://www.youtube.com/embed/inpok4MKVLM"
+              title="5-Minute Mindfulness Meditation for Stress Relief"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((f) => (
             <div key={f.title} className={`zevina-card p-6 border ${f.color}`}>
