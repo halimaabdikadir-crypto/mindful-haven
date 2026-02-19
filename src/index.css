@@ -2,95 +2,109 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* ZEVINA Design System — All colors are HSL */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Brand Colors */
+    --background: 36 100% 97%;
+    --foreground: 220 20% 20%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 36 60% 99%;
+    --card-foreground: 220 20% 20%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 36 60% 99%;
+    --popover-foreground: 220 20% 20%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Sage Green Primary */
+    --primary: 108 38% 52%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Lavender Secondary */
+    --secondary: 270 55% 88%;
+    --secondary-foreground: 270 40% 30%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 36 40% 93%;
+    --muted-foreground: 220 12% 50%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 270 55% 88%;
+    --accent-foreground: 270 40% 30%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 36 30% 88%;
+    --input: 36 30% 88%;
+    --ring: 108 38% 52%;
+    --radius: 0.75rem;
 
-    --radius: 0.5rem;
+    /* ZEVINA Custom */
+    --lavender: 270 55% 80%;
+    --lavender-deep: 270 50% 60%;
+    --sage: 108 38% 52%;
+    --sage-light: 108 38% 92%;
+    --cream: 36 100% 97%;
+    --purple-heart: 270 60% 65%;
+    --hero-gradient: linear-gradient(135deg, hsl(108, 38%, 90%) 0%, hsl(36, 100%, 97%) 40%, hsl(270, 55%, 93%) 100%);
+    --card-shadow: 0 4px 24px hsl(270 30% 70% / 0.15);
+    --button-shadow: 0 4px 14px hsl(108 38% 52% / 0.3);
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 36 60% 99%;
+    --sidebar-foreground: 220 20% 20%;
+    --sidebar-primary: 108 38% 52%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 270 55% 88%;
+    --sidebar-accent-foreground: 270 40% 30%;
+    --sidebar-border: 36 30% 88%;
+    --sidebar-ring: 108 38% 52%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 270 20% 8%;
+    --foreground: 270 10% 92%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 270 18% 12%;
+    --card-foreground: 270 10% 92%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 270 18% 12%;
+    --popover-foreground: 270 10% 92%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 270 60% 65%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 270 25% 20%;
+    --secondary-foreground: 270 40% 85%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 270 20% 16%;
+    --muted-foreground: 270 10% 60%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 270 25% 20%;
+    --accent-foreground: 270 40% 85%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62% 40%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --border: 270 20% 20%;
+    --input: 270 20% 20%;
+    --ring: 270 60% 65%;
+
+    --lavender: 270 50% 60%;
+    --lavender-deep: 270 60% 70%;
+    --sage: 270 60% 65%;
+    --sage-light: 270 25% 18%;
+    --cream: 270 20% 8%;
+    --purple-heart: 270 70% 72%;
+    --hero-gradient: linear-gradient(135deg, hsl(270, 30%, 12%) 0%, hsl(270, 20%, 8%) 50%, hsl(270, 25%, 14%) 100%);
+    --card-shadow: 0 4px 24px hsl(270 60% 20% / 0.4);
+
+    --sidebar-background: 270 18% 12%;
+    --sidebar-foreground: 270 10% 92%;
+    --sidebar-primary: 270 60% 65%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 270 25% 20%;
+    --sidebar-accent-foreground: 270 40% 85%;
+    --sidebar-border: 270 20% 20%;
+    --sidebar-ring: 270 60% 65%;
   }
 }
 
@@ -98,8 +112,260 @@ All colors MUST be HSL.
   * {
     @apply border-border;
   }
-
   body {
     @apply bg-background text-foreground;
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    transition: background-color 0.4s ease, color 0.4s ease;
   }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Merienda', cursive;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+  h1 { font-size: clamp(28px, 5vw, 48px); font-weight: 700; }
+  h2 { font-size: clamp(22px, 3.5vw, 34px); font-weight: 600; }
+  h3 { font-size: clamp(18px, 2.5vw, 26px); font-weight: 600; }
 }
+
+/* === FLOATING HEARTS ANIMATION === */
+@keyframes floatUp {
+  0%   { transform: translateY(0) scale(1) rotate(0deg); opacity: 0.8; }
+  50%  { transform: translateY(-50vh) scale(1.1) rotate(15deg); opacity: 0.5; }
+  100% { transform: translateY(-100vh) scale(0.8) rotate(-10deg); opacity: 0; }
+}
+@keyframes sway {
+  0%, 100% { margin-left: 0; }
+  25% { margin-left: 20px; }
+  75% { margin-left: -20px; }
+}
+.heart-particle {
+  position: fixed;
+  pointer-events: none;
+  animation: floatUp var(--duration, 8s) ease-in forwards, sway var(--sway, 4s) ease-in-out infinite;
+  z-index: 0;
+  font-size: var(--size, 18px);
+  opacity: 0.7;
+}
+
+/* === TOGGLE BUTTON === */
+.theme-toggle {
+  width: 52px;
+  height: 28px;
+  border-radius: 14px;
+  background: hsl(var(--muted));
+  position: relative;
+  cursor: pointer;
+  transition: background 0.4s ease;
+  border: 2px solid hsl(var(--border));
+}
+.theme-toggle.dark-active {
+  background: hsl(var(--primary));
+}
+.theme-toggle-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+.theme-toggle.dark-active .theme-toggle-thumb {
+  transform: translateX(24px);
+}
+
+/* === GLASSMORPHISM HEADER === */
+.glass-header {
+  background: hsl(var(--background) / 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid hsl(var(--border) / 0.5);
+  transition: background 0.4s ease;
+}
+
+/* === HERO GRADIENT === */
+.hero-gradient {
+  background: var(--hero-gradient);
+}
+
+/* === CARD HOVER === */
+.zevina-card {
+  background: hsl(var(--card));
+  border-radius: 16px;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.zevina-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px hsl(270 30% 60% / 0.25);
+}
+
+/* === BUTTONS === */
+.btn-primary {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border-radius: 10px;
+  padding: 10px 24px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  box-shadow: var(--button-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px hsl(var(--primary) / 0.4);
+}
+.btn-primary:active { transform: translateY(0); }
+
+.btn-lavender {
+  background: hsl(var(--lavender));
+  color: hsl(var(--secondary-foreground));
+  border-radius: 10px;
+  padding: 10px 24px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  box-shadow: 0 4px 14px hsl(270 55% 70% / 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+.btn-lavender:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px hsl(270 55% 70% / 0.45);
+}
+
+/* === FAQ ACCORDION === */
+details.faq-item {
+  border-radius: 12px;
+  background: hsl(var(--card));
+  margin-bottom: 12px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+}
+details.faq-item summary {
+  cursor: pointer;
+  padding: 16px 20px;
+  font-family: 'Merienda', cursive;
+  font-weight: 600;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.2s;
+}
+details.faq-item summary:hover { background: hsl(var(--muted)); }
+details.faq-item[open] summary { background: hsl(var(--sage-light)); }
+details.faq-item .faq-content {
+  padding: 0 20px 16px;
+  font-family: 'Nunito', sans-serif;
+  color: hsl(var(--muted-foreground));
+  animation: fadeIn 0.3s ease;
+}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+
+/* === CHATBOT === */
+.chatbot-window {
+  background: hsl(var(--card));
+  border-radius: 20px;
+  box-shadow: 0 12px 48px hsl(270 40% 40% / 0.25);
+  border: 1px solid hsl(var(--border));
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.chatbot-messages {
+  overflow-y: auto;
+  padding: 16px;
+  flex: 1;
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--border)) transparent;
+}
+.chat-msg-bot {
+  background: hsl(var(--sage-light));
+  border-radius: 16px 16px 16px 4px;
+  padding: 10px 14px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  max-width: 85%;
+  line-height: 1.5;
+}
+.chat-msg-user {
+  background: hsl(var(--lavender));
+  border-radius: 16px 16px 4px 16px;
+  padding: 10px 14px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  max-width: 85%;
+  margin-left: auto;
+  line-height: 1.5;
+  color: hsl(var(--secondary-foreground));
+}
+
+/* === FORUM POSTS === */
+.forum-post {
+  background: hsl(var(--card));
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: var(--card-shadow);
+  border: 1px solid hsl(var(--border));
+  transition: transform 0.2s ease;
+}
+.forum-post:hover { transform: translateY(-2px); }
+.like-btn {
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.like-btn:hover { transform: scale(1.3); }
+.like-btn.liked { animation: heartBeat 0.4s ease; }
+@keyframes heartBeat {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.4); }
+  100% { transform: scale(1); }
+}
+
+/* === MOBILE NAV === */
+.mobile-nav {
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+}
+.mobile-nav.closed {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+.mobile-nav.open {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* === NOTIFICATION BADGE === */
+.notif-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: hsl(0 84% 60%);
+  color: white;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  border: 2px solid hsl(var(--background));
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 hsl(0 84% 60% / 0.4); }
+  50%       { box-shadow: 0 0 0 6px hsl(0 84% 60% / 0); }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 6px; }
